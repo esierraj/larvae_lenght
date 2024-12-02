@@ -1,8 +1,5 @@
-import cv2  # Paquete de procesamiento de imagen
+import cv2  # Paquete de procesamiento y análisis de imagen
 import math  # Modulo de funciones matemáticas
-
-'''Código para medir la longitud de larvas de la especie Spodoptera frugiperda
-Nota: Para utilizar este código es necesario contar con una escala en las fotografías de las larvas'''
 
 ## Definición de funciones
 
@@ -52,7 +49,7 @@ puntos_escala = []   # Lista que almacenará los dos puntos que se ubicarán en 
 puntos_larva = []    # Lista que almacenará los puntos que se ubicarán en la imagen para medir la larva
  
 ## Cargar la imagen usando OpenCV
-ruta_imagen = "c:/Users/EGWER/Desktop/Carpeta prueba/fotos_pruebas/prueba_larva (5).jpg"
+ruta_imagen = "c:/Users/EGWER/Desktop/Carpeta prueba/fotos_pruebas/prueba_larva (5).jpg" # Ruta en la que se encuentra guardada la imagen
 imagen_cv2 = cv2.imread(ruta_imagen)
 
 ## Redimensionar la imagen si es necesario
@@ -72,12 +69,7 @@ if resp.lower() in ["si", "sí"]:
     # Mostrar la imagen para la selección de puntos
     imagen_escala = cv2.imread(ruta_imagen)
     imagen_escala = cv2.resize(imagen_escala, (nuevo_ancho, nuevo_alto), interpolation=cv2.INTER_AREA)
-    # cv2.putText(imagen_escala, 
-            #   'Haga clic en dos puntos para indicar la distancia conocida usando la cuadricula del fondo, ',
-            #  (int(imagen_cv2.shape[0]*0.1),int(imagen_cv2.shape[1]*0.1)),cv2.FONT_HERSHEY_SIMPLEX,0.5,(25, 0, 0),1)
-    # cv2.putText(imagen_escala, 
-            # 'una vez finalice, cierre esta ventana.',
-            # (int(imagen_cv2.shape[0]*0.1),int(imagen_cv2.shape[1]*0.14)),cv2.FONT_HERSHEY_SIMPLEX,0.5,(25, 0, 0),1)
+    
     cv2.imshow("Ajuste de escala", imagen_escala)
     cv2.setMouseCallback("Ajuste de escala", seleccionar_punto)
     cv2.waitKey(0)
@@ -95,12 +87,7 @@ lista_dist = [] # Lista que almacenará las distancias entre los puntos seleccio
 # Mostrar la imagen para la selección de puntos
 imagen_larva = cv2.imread(ruta_imagen)
 imagen_larva = cv2.resize(imagen_larva, (nuevo_ancho, nuevo_alto), interpolation=cv2.INTER_AREA)
-#cv2.putText(imagen_larva, 
-        #     'Haga clic varias veces a lo largo de la linea media dorsal de la larva,',
-        #    (int(imagen_cv2.shape[0]*0.1),int(imagen_cv2.shape[1]*0.1)),cv2.FONT_HERSHEY_SIMPLEX,0.5,(25, 0, 0),1)
-# cv2.putText(imagen_larva, 
-        #     'una vez finalice, cierre esta ventana.',
-        #     (int(imagen_cv2.shape[0]*0.1),int(imagen_cv2.shape[1]*0.14)),cv2.FONT_HERSHEY_SIMPLEX,0.5,(25, 0, 0),1)
+
 cv2.imshow("Calculo de la longitud de la larva", imagen_larva)
 cv2.setMouseCallback("Calculo de la longitud de la larva", seleccionar_punto_long)
 cv2.waitKey(0)
