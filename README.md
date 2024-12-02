@@ -19,7 +19,7 @@ pip install opencv-python
 ```
 # Usage
 - Make sure you have a photograph of the larva with a known scale (for example, a grid with known distances in the image).
-- Place the image file at the path specified in the code (you can change the image path in the ruta_imagen variable).
+- Place the image file at the path specified in the code (you can change the image path in the *ruta_imagen* variable).
 - The code will ask if scale is thought to be adjusted, if so, it will ask for the known distance in the image in centimeters (based on the grid dimensions), if 
  the answer is 'no', a default scale will be used.
 - The code will prompt you to adjust the scale of the image by selecting two points with a known distance available in the image. Once the two points were selected, close the window to set the scale.
