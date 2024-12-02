@@ -1,8 +1,8 @@
-# Measurement of the Length of *Spodoptera frugiperda* Larvae
+# Measurement of the Length of *Spodoptera frugiperda* larvae
 
 The measurement of length in larval stage individuals is one of the most commonly used criteria for monitoring growth and development in insect species that include this stage in their life cycle. This is the case for *Spodoptera frugiperda*, an insect of the order Lepidoptera, whose larval phase is divided into six main instars, each described with an approximate length. Although this measurement is a typical protocol for monitoring the life cycle of the larva, it can become methodologically challenging due to the high mobility of the larvae and their tendency to curl and fold.
 
-The following code provides a simple tool to measure the length of larval stage individuals from photographic material. For the implementation of this code, it will be necessary to have a scale in the photographs, such as a grid with known dimensions.
+The following code provides a simple tool to measure the length of *Spodoptera frugiperda* larvae from photographic material. For the implementation of this code, it will be necessary to have a scale in the photographs, such as a grid with known dimensions.
 
 
 ## Requirements
