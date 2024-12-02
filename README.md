@@ -40,5 +40,5 @@ Note: The recommended maximum image dimension for it to display fully is 975 pix
 - The image must have a known scale that can be used to convert the distances from pixels to centimeters.
 
 # Code Testing
-- Images suitable for testing the code can be found in [test_images](test_images) folder.
+- Images suitable for testing the code can be found at [test_images](test_images) folder.
 
