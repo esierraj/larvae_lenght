@@ -47,6 +47,8 @@ def seleccionar_punto_long(event, x, y, flags, param):
 escala = None        # Escala en pi/cm para conversión de unidades de distancia
 puntos_escala = []   # Lista que almacenará los dos puntos que se ubicarán en la imagen para encontrar la escala
 puntos_larva = []    # Lista que almacenará los puntos que se ubicarán en la imagen para medir la larva
+lista_dist = []      # Lista que almacenará las distancias entre los puntos seleccionados en la imagen
+escala_default = 200 # Escala predeterminada en pi/cm
  
 ## Cargar la imagen usando OpenCV
 ruta_imagen = "C:/Users/Usuario/Carpeta/imagen.jpg" # Ruta en la que se encuentra guardada la imagen
@@ -77,12 +79,10 @@ if resp.lower() in ["si", "sí"]:
 
 # Si no se ajusta la escala o no se seleccionan dos puntos, usa un valor predeterminado. Útil cuando se tienen muchas imágenes similares.
 if escala is None:
-    escala = 200 
+    escala = escala_default 
     print(f"Usando escala predeterminada: {escala} pi/cm")
 
 ## Calcular la longitud de la larva
-
-lista_dist = [] # Lista que almacenará las distancias entre los puntos seleccionados en la imagen
 
 # Mostrar la imagen para la selección de puntos
 imagen_larva = cv2.imread(ruta_imagen)
