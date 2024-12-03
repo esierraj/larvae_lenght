@@ -49,7 +49,7 @@ puntos_escala = []   # Lista que almacenará los dos puntos que se ubicarán en 
 puntos_larva = []    # Lista que almacenará los puntos que se ubicarán en la imagen para medir la larva
  
 ## Cargar la imagen usando OpenCV
-ruta_imagen = "c:/Users/EGWER/Desktop/Carpeta prueba/fotos_pruebas/prueba_larva (5).jpg" # Ruta en la que se encuentra guardada la imagen
+ruta_imagen = "C:/Users/Usuario/Carpeta/imagen.jpg" # Ruta en la que se encuentra guardada la imagen
 imagen_cv2 = cv2.imread(ruta_imagen)
 
 ## Redimensionar la imagen si es necesario
