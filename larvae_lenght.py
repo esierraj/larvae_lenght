@@ -77,7 +77,8 @@ if resp.lower() in ["si", "sí"]:
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-# Si no se ajusta la escala o no se seleccionan dos puntos, usa un valor predeterminado. Útil cuando se tienen muchas imágenes similares.
+''' Si no se ajusta la escala o no se seleccionan dos puntos, usa un valor predeterminado. 
+    Esto es útil cuando se tienen muchas imágenes similares'''
 if escala is None:
     escala = escala_default 
     print(f"Usando escala predeterminada: {escala} pi/cm")
