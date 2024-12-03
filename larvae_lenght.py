@@ -51,9 +51,9 @@ def seleccionar_punto_long(event, x, y, flags, param):
 
 ## Variables globales del código
 escala = None        # Escala en pi/cm para conversión de unidades de distancia
-puntos_escala = []   # Lista que almacenará los dos puntos que se ubicarán en la imagen para encontrar la escala
-puntos_larva = []    # Lista que almacenará los puntos que se ubicarán en la imagen para medir la larva
-lista_dist = []      # Lista que almacenará las distancias entre los puntos seleccionados en la imagen
+puntos_escala = []   # Lista con los dos puntos que se ubicarán en la imagen para encontrar la escala
+puntos_larva = []    # Lista con los puntos que se ubicarán en la imagen para medir la larva
+lista_dist = []      # Lista con las distancias entre los puntos seleccionados en la imagen
 escala_default = 200 # Escala predeterminada en pi/cm
  
 ## Cargar la imagen usando OpenCV
