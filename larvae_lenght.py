@@ -18,7 +18,10 @@ def seleccionar_punto(event, x, y, flags, param):
         if len(puntos_escala) == 2:            # Al presionar el botón izquierdo del mouse dos veces
             distancia = calcular_distancia(puntos_escala[0], puntos_escala[1])
             print(f"Distancia entre los puntos: {distancia} píxeles")
-            cv2.line(imagen_escala, puntos_escala[0], puntos_escala[1], (255, 0, 0), 2)    # Graficar línea entre los puntos
+            cv2.line(imagen_escala,      # Graficar línea entre los puntos
+                     puntos_escala[0],
+                     puntos_escala[1],
+                     (255, 0, 0), 2)    
             cv2.imshow("Ajuste de escala", imagen_escala)
             escala = distancia / longitud
             print(f"Escala: {escala} pi/cm")
@@ -36,7 +39,10 @@ def seleccionar_punto_long(event, x, y, flags, param):
             try:
                 distancia = (calcular_distancia(puntos_larva[-1], puntos_larva[-2]))/escala
                 lista_dist.append(distancia)
-                cv2.line(imagen_larva, puntos_larva[-1], puntos_larva[-2], (255, 0, 0), 2)    # Graficar línea entre los puntos
+                cv2.line(imagen_larva, 
+                         puntos_larva[-1],
+                         puntos_larva[-2],
+                         (255, 0, 0), 2)    # Graficar línea entre los puntos
                 cv2.imshow("Calculo de la longitud de la larva", imagen_larva)
             except IndexError:
                 pass
@@ -58,7 +64,9 @@ imagen_cv2 = cv2.imread(ruta_imagen)
 porcentaje_reduccion = 74.5  # Ej: Escribir 20 si se quiere una reducción del 20% en las dimensiones de la imagen
 nuevo_ancho = int(imagen_cv2.shape[1] * ((100 - porcentaje_reduccion) / 100))
 nuevo_alto = int(imagen_cv2.shape[0] * ((100 - porcentaje_reduccion) / 100))
-imagen_cv2 = cv2.resize(imagen_cv2, (nuevo_ancho, nuevo_alto), interpolation=cv2.INTER_AREA)  # Generar nueva imagen
+imagen_cv2 = cv2.resize(imagen_cv2,                # Generar nueva imagen
+                        (nuevo_ancho, nuevo_alto),
+                        interpolation=cv2.INTER_AREA)  
 
 ## Ajuste de escala
 
@@ -70,15 +78,17 @@ if resp.lower() in ["si", "sí"]:
 
     # Mostrar la imagen para la selección de puntos
     imagen_escala = cv2.imread(ruta_imagen)
-    imagen_escala = cv2.resize(imagen_escala, (nuevo_ancho, nuevo_alto), interpolation=cv2.INTER_AREA)
+    imagen_escala = cv2.resize(imagen_escala,
+                               (nuevo_ancho, nuevo_alto),
+                               interpolation=cv2.INTER_AREA)
     
     cv2.imshow("Ajuste de escala", imagen_escala)
     cv2.setMouseCallback("Ajuste de escala", seleccionar_punto)
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-''' Si no se ajusta la escala o no se seleccionan dos puntos, usa un valor predeterminado. 
-    Esto es útil cuando se tienen muchas imágenes similares'''
+''' Si no se ajusta la escala o no se seleccionan dos puntos, 
+usa un valor predeterminado. Esto es útil cuando se tienen muchas imágenes similares'''
 if escala is None:
     escala = escala_default 
     print(f"Usando escala predeterminada: {escala} pi/cm")
@@ -87,7 +97,9 @@ if escala is None:
 
 # Mostrar la imagen para la selección de puntos
 imagen_larva = cv2.imread(ruta_imagen)
-imagen_larva = cv2.resize(imagen_larva, (nuevo_ancho, nuevo_alto), interpolation=cv2.INTER_AREA)
+imagen_larva = cv2.resize(imagen_larva,
+                          (nuevo_ancho, nuevo_alto),
+                          interpolation=cv2.INTER_AREA)
 
 cv2.imshow("Calculo de la longitud de la larva", imagen_larva)
 cv2.setMouseCallback("Calculo de la longitud de la larva", seleccionar_punto_long)
